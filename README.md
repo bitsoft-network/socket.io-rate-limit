@@ -12,7 +12,13 @@ Install the package by typing `npm i @bitsoft-network/socket.io-rate-limit` in y
 const socketRateLimiter = require("@bitsoft-network/socket.io-rate-limit");
 
 /* ... get access to socket.io's main object */
-io.use(socketRateLimiter({ proxy: false, maxBurst: 5, perSecond: 1 }));
+io.on("connection", socket => {
+  // Setup rate limiting middleware
+  socket.use(
+    socketRateLimiter({ proxy: false, maxBurst: 5, perSecond: 1 }, socket)
+  );
+  /* ... your code below */
+});
 ```
 
 ## Methods
@@ -24,10 +30,11 @@ Pass this with the config as an middleware to `io.use()`.
 #### Parameters
 
 - config (ConfigObject)
+- socket (SocketIO#Socket)
 
 #### Returns
 
-- Function (SocketIOMiddleware)
+- Function (SocketIO#Middleware)
 
 ## Objects
 

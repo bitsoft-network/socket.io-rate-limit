@@ -2,7 +2,7 @@
 const TokenBucket = require("@bitsoft-network/ip-token-bucket");
 
 // Main function
-const socketRateLimiter = config => {
+const socketRateLimiter = (config, socket) => {
   // Get config values
   const { proxy, maxBurst, perSecond } = config;
 
@@ -13,7 +13,7 @@ const socketRateLimiter = config => {
   });
 
   // Return socket.io middleware
-  return (socket, next) => {
+  return (packet, next) => {
     // Get client IP
     const remoteAddress = socket.request.socket.remoteAddress;
     const xForwardedFor =
