@@ -29,7 +29,11 @@ const socketRateLimiter = (config, socket) => {
     if (hasTokens) {
       next();
     } else {
-      next(new Error("Too many requests, slow down."));
+      const error = new Error("Too many requests, slow down.");
+      error.data = {
+        message: "Too many requests, slow down.",
+      };
+      next(error);
     }
   };
 };
