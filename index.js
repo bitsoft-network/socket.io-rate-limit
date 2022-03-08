@@ -16,11 +16,12 @@ const socketRateLimiter = (config, socket) => {
   return (packet, next) => {
     // Get client IP
     const remoteAddress = socket.request.socket.remoteAddress;
-    const xForwardedFor =
-      socket.handshake.headers["X-Forwarded-For"].split(",")[0];
+    const xForwardedFor = proxy
+      ? socket.handshake.headers["X-Forwarded-For"].split(",")[0]
+      : false;
 
     // If using proxy, use headers instead
-    const ipAddress = proxy ? xForwardedFor || remoteAddress : remoteAddress;
+    const ipAddress = xForwardedFor || remoteAddress;
 
     // Take one token out if ip's bucket
     const hasTokens = bucket.take(ipAddress);
