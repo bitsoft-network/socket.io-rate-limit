@@ -1,6 +1,6 @@
 {
   "name": "@bitsoft-network/socket.io-rate-limit",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "IP based token bucket rate limiter / throttler.",
   "main": "index.js",
   "scripts": {
