@@ -1,0 +1,29 @@
+{
+  "name": "@bitsoft-network/socket.io-rate-limit",
+  "version": "1.0.0",
+  "description": "IP based token bucket rate limiter / throttler.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bitsoft-network/socket.io-rate-limit.git"
+  },
+  "keywords": [
+    "socket.io",
+    "middleware",
+    "rate limit",
+    "token bucket",
+    "ip"
+  ],
+  "author": "Leevi Halme <me@leevihal.me> (https://leevihal.me/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bitsoft-network/socket.io-rate-limit/issues"
+  },
+  "homepage": "https://github.com/bitsoft-network/socket.io-rate-limit#readme",
+  "dependencies": {
+    "@bitsoft-network/ip-token-bucket": "^1.0.1"
+  }
+}
